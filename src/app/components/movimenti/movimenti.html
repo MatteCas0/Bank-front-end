@@ -1,1 +1,21 @@
-<p>movimenti works!</p>
+<div class="movimenti-container">
+    <div class="movimenti-header">
+        <h2>Movimenti</h2>
+    </div>
+    <table class="movimenti-table">
+        <tr>
+            <th>Tipo</th>
+            <th>Descrizione</th>
+        <th>Importo</th>
+        <th>Data</th>
+    </tr>
+    <tr *ngFor="let movimento of movimenti">
+        <td >{{ movimento.type }}</td>
+        <td>{{ movimento.description }}</td>
+        <td [class.importo-positivo]="movimento.amount > 0" [class.importo-negativo]="movimento.amount < 0">
+            {{ movimento.amount }}
+        </td>
+        <td class="data">{{ movimento.created_at }}</td>
+    </tr>
+</table>
+</div>

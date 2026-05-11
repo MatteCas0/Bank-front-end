@@ -1,0 +1,32 @@
+:host{
+    width: 100%;
+    margin: 0% 5%;
+}
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.saldo-container {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+}
+.saldo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.saldo-header h2 {
+    margin: 0;
+    color: #333;
+}
+.saldo-amount {
+    font-size: 2rem;
+    color: #555;
+}

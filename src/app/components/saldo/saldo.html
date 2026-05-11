@@ -1,1 +1,20 @@
-<p>saldo works!</p>
+<div class="saldo-container">
+  <div class="saldo-header">
+    <h2>Saldo corrente</h2>
+  </div>
+  <p class="saldo-amount">USD {{ balance.toFixed(2) }}</p>
+</div>
+
+<div class="conversion-section">
+    <h3>Conversioni</h3>
+    <p>
+      {{ fiatCurrency }}: 
+      {{ fiatBalance !== null ? fiatBalance.toFixed(2) : 'Caricamento...' }}
+    </p>
+    <p>
+      {{ cryptoSymbol }}:
+      {{ cryptoBalance !== null ? cryptoBalance.toFixed(6) : 'Caricamento...' }}
+    </p>
+  </div>
+
+  <p class="error">{{ error }}</p>

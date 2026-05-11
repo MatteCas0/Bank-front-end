@@ -1,0 +1,53 @@
+:host {
+    width: 100%;
+    margin: 0% 5%;
+}
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.movimenti-container {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.movimenti-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.movimenti-header h2 {
+    margin: 0;
+    color: #333;
+}
+.movimenti-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.movimenti-table th, .movimenti-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.movimenti-table th {
+    background-color: #f8f8f8;
+    color: #555;
+}
+.movimenti-table tr:hover {
+    background-color: #f1f1f1;
+}
+.movimenti-table .importo-positivo {
+    color: green;
+}
+.movimenti-table .importo-negativo {
+    color: red;
+}
+.movimenti-table .data {
+    color: #777;
+}
