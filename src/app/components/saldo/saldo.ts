@@ -17,7 +17,7 @@ export class Saldo implements OnInit {
 
   constructor(private bankService: BankService) {}
 
-  ngOnInit() {
+  ngOnInit() {/*
     this.balance = this.bankService.getBalance();
 
     this.bankService.convertBalanceToFiat(this.fiatCurrency).subscribe({
@@ -30,6 +30,7 @@ export class Saldo implements OnInit {
       next: (value) => (this.cryptoBalance = value),
       error: (err) =>
         (this.error = `Errore conversione crypto: ${err?.message ?? err}`),
-    });
+    });*/
   }
+    
 }

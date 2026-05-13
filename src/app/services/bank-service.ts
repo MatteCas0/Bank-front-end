@@ -8,68 +8,44 @@ import { Transaction } from '../models/transaction.model';
   providedIn: 'root',
 })
 export class BankService {
-  account: Account = {
-    id: '1',
-    owner_name: 'John Doe',
-    currency: 'EUR',
-    createdAt: new Date().toISOString(),
-  };
+  
+  private apiUrl = 'http://localhost:4200/api';
 
-  movimenti: Transaction[] = [
-    {
-      id: '1',
-      amount: 100,
-      description: 'Deposit',
-      type: 'deposit',
-      account_id: '1',
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: '2',
-      amount: 50,
-      description: 'Withdrawal',
-      type: 'withdrawal',
-      account_id: '1',
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: '3',
-      amount: 200,
-      description: 'Deposit',
-      type: 'deposit',
-      account_id: '1',
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: '4',
-      amount: 30,
-      description: 'Withdrawal',
-      type: 'withdrawal',
-      account_id: '1',
-      created_at: new Date().toISOString(),
-    }
-  ];
+  private movimenti: Observable<Transaction[]> = of([]);
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient) {
+    this.movimenti = http.get<Transaction[]>(`${this.apiUrl}/1/movimenti`);
+  }
+  
+  
+  
+  /*
   getAccount(): Account {
     return this.account;
   }
+  getCurrency(): string {
+    return this.account.currency;
+  }
+  */
 
-  getTransactions(): Transaction[] {
+  getTransactions(): Observable<Transaction[]> {
     return this.movimenti;
   }
 
-  getBalance(): number {
-    const deposits = this.movimenti
-      .filter((t) => t.type === 'deposit')
-      .reduce((sum, t) => sum + t.amount, 0);
-    const withdrawals = this.movimenti
-      .filter((t) => t.type === 'withdrawal')
-      .reduce((sum, t) => sum + t.amount, 0);
-    return deposits - withdrawals;
+  getBalance(): Observable<number> {
+    return this.movimenti.pipe(
+      map((transactions) => {
+        const deposits = transactions
+          .filter((t) => t.type === 'deposit')
+          .reduce((sum, t) => sum + t.amount, 0);
+        const withdrawals = transactions
+          .filter((t) => t.type === 'withdrawal')
+          .reduce((sum, t) => sum + t.amount, 0);
+        return deposits - withdrawals;
+      })
+    );
   }
-
+/*
   convertBalanceToFiat(targetCurrency: string): Observable<number> {
     const amount = this.getBalance();
     return this.http
@@ -96,4 +72,5 @@ export class BankService {
       )
       .pipe(map((res) => balance / parseFloat(res.price)));
   }
+*/
 }
