@@ -1,1 +1,9 @@
-<p>deposito works!</p>
+<div class="deposito-container">
+    <h4>Deposito</h4>
+    <form (ngSubmit)="depositaImporto(amount)">
+        <div class="form-group">
+            <input type="number" id="amount" [(ngModel)]="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn-deposita">Deposita</button>
+    </form>
+</div>

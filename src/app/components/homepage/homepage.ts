@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
+import { BankService } from '../../services/bank-service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-homepage',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './homepage.css',
 })
 export class Homepage {
+  nomeUtente: string = "schifo";
+  balance: Signal<number>;
+
+  constructor(private bankService: BankService) {
+    this.balance = toSignal(this.bankService.getBalance(), { initialValue: 0 });
+  }
 
 }

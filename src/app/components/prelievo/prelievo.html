@@ -1,1 +1,13 @@
-<p>prelievo works!</p>
+<div class="prelievo-container">
+    <h4>Prelievo</h4>
+    <form (ngSubmit)="prelievaImporto(amount)">
+        <div class="form-group">
+            <input type="number" id="amount" [(ngModel)]="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn-preleva">Preleva</button>
+    </form>
+    <button (click)="prelievaImporto(10)" class="btn-quick">10</button>
+    <button (click)="prelievaImporto(15)" class="btn-quick">15</button>
+    <button (click)="prelievaImporto(20)" class="btn-quick">20</button>
+    <button (click)="prelievaImporto(50)" class="btn-quick">50</button>
+</div>

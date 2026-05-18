@@ -1,1 +1,27 @@
-<p>homepage works!</p>
+<div>
+    <h3>Benvenuto {{ nomeUtente }}</h3>
+
+</div>
+
+<div>
+    <h4>Crea movimento</h4>
+    <button>Preleva</button>
+    <button>deposita</button>
+</div>
+
+<div>
+    <h4>Saldo</h4>
+    <p>{{ balance().toFixed(2) }} - EUR</p>
+</div>
+
+<div>
+    <h4>ultime transazioni</h4>
+    <tr *ngFor="let movimento of movimenti()">
+        <td >{{ movimento.type }}</td>
+        <td>{{ movimento.description }}</td>
+        <td [class.importo-positivo]="movimento.amount > 0" [class.importo-negativo]="movimento.amount < 0">
+            {{ movimento.amount }}
+        </td>
+        <td class="data">{{ movimento.created_at }}</td>
+    </tr>
+</div>
