@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 export class Prelievo {
 
   amount: number = 0;
+  description: string = '';
 
   prelievaImporto(importo: number) {
     if (isNaN(importo) || importo <= 0) {

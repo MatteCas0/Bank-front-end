@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class BankAccount {
 
-  private apiUrl = 'http://localhost:4200/api';
+  private apiUrl = 'http://localhost';
   
 }

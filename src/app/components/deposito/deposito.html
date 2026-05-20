@@ -1,8 +1,9 @@
 <div class="deposito-container">
     <h4>Deposito</h4>
-    <form (ngSubmit)="depositaImporto(amount)">
+    <form (ngSubmit)="depositaImporto(amount, description)">
         <div class="form-group">
             <input type="number" id="amount" [(ngModel)]="amount" name="amount" required>
+            <input type="text" id="description" [(ngModel)]="description" name="description" placeholder="Descrizione (opzionale)">
         </div>
         <button type="submit" class="btn-deposita">Deposita</button>
     </form>

@@ -1,27 +1,36 @@
-<div>
+<div class="homepage-header homepage-content homepage-container-header">
     <h3>Benvenuto {{ nomeUtente }}</h3>
-
 </div>
 
-<div>
-    <h4>Crea movimento</h4>
-    <button>Preleva</button>
-    <button>deposita</button>
-</div>
+<div class="homepage-div">
+    <div class="homepage-content homepage-container">
+        <h4>Crea movimento</h4>
+        <div>
+            <a href="/prelievo"><button>Preleva</button></a>
+            <a href="/deposito"><button>deposita</button></a>
+        </div>
+    </div>
 
-<div>
-    <h4>Saldo</h4>
-    <p>{{ balance().toFixed(2) }} - EUR</p>
-</div>
+    <div class="homepage-content homepage-container">
+        <h4>Saldo</h4>
+        <p>{{ balance().toFixed(2) }} - EUR</p>
+    </div>
 
-<div>
-    <h4>ultime transazioni</h4>
-    <tr *ngFor="let movimento of movimenti()">
-        <td >{{ movimento.type }}</td>
-        <td>{{ movimento.description }}</td>
-        <td [class.importo-positivo]="movimento.amount > 0" [class.importo-negativo]="movimento.amount < 0">
-            {{ movimento.amount }}
-        </td>
-        <td class="data">{{ movimento.created_at }}</td>
-    </tr>
+    <div class="homepage-content homepage-container">
+        <h4>ultime transazioni</h4>
+        <table class="homepage-table">
+            <tr>
+                <th>Tipo</th>
+                <th>Importo</th>
+                <th>Data</th>
+            </tr>
+            <tr *ngFor="let movimento of movimenti()">
+                <td >{{ movimento.type }}</td>
+                <td [class.importo-positivo]="movimento.type === 'deposit'" [class.importo-negativo]="movimento.type === 'withdrawal'">
+                    {{ movimento.amount }}
+                </td>
+                <td class="data">{{ movimento.created_at | date:'dd/MM/yyyy' }}</td>
+            </tr>
+        </table>
+    </div>
 </div>

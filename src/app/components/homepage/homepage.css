@@ -1,0 +1,109 @@
+:host {
+    width: 100%;
+    margin: 3% 5%;
+}
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.homepage-container-header {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+}
+.homepage-container {
+    margin: 20px 2%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+}
+.homepage-header {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.homepage-content {
+    max-width: 800px;
+    text-align: center;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.homepage-content p {
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+.homepage-content a {
+    color: #007BFF;
+    text-decoration: none;
+}
+.homepage-content a:hover {
+    text-decoration: underline;
+}
+.homepage-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.homepage-content button:hover {
+    background-color: #0056b3;
+}
+
+.homepage-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.homepage-content h4{
+    font-size: 1.5em;
+}
+.homepage-content table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+
+.homepage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.homepage-table th, .homepage-table td {
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.homepage-table th {
+    background-color: #f8f8f8;
+    color: #555;
+}
+.homepage-table tr:hover {
+    background-color: #f1f1f1;
+}
+.homepage-table .importo-positivo {
+    color: green;
+}
+.homepage-table .importo-negativo {
+    color: red;
+}
+.homepage-table .data {
+    color: #777;
+}

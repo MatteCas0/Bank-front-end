@@ -12,7 +12,7 @@
     <tr *ngFor="let movimento of movimenti()">
         <td >{{ movimento.type }}</td>
         <td>{{ movimento.description }}</td>
-        <td [class.importo-positivo]="movimento.amount > 0" [class.importo-negativo]="movimento.amount < 0">
+        <td [class.importo-positivo]="movimento.type === 'deposit'" [class.importo-negativo]="movimento.type === 'withdrawal'">
             {{ movimento.amount }}
         </td>
         <td class="data">{{ movimento.created_at }}</td>

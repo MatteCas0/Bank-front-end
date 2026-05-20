@@ -9,15 +9,15 @@ import { Transaction } from '../models/transaction.model';
 })
 export class BankService {
   
-  private apiUrl = 'http://localhost:4200/api';
+  private apiUrl = 'http://localhost';
 
   private movimenti: Observable<Transaction[]> = of([]);
+  private movimentiHomepage: Observable<Transaction[]> = of([]);
 
   constructor(private http: HttpClient) {
-    this.movimenti = http.get<Transaction[]>(`${this.apiUrl}/1/movimenti`);
+    this.movimenti = http.get<Transaction[]>(`${this.apiUrl}/accounts/1/movimenti`);
+    this.movimentiHomepage = http.get<Transaction[]>(`${this.apiUrl}/accounts/1/movimenti_homepage`);
   }
-  
-  
   
   /*
   getAccount(): Account {
@@ -28,8 +28,16 @@ export class BankService {
   }
   */
 
+  getMovimenti(): Observable<Transaction[]> {
+    return this.movimenti;
+  }
+
   getTransactions(): Observable<Transaction[]> {
     return this.movimenti;
+  }
+
+  getHomepageTransactions(): Observable<Transaction[]> {
+    return this.movimentiHomepage;
   }
 
   getBalance(): Observable<number> {
@@ -44,6 +52,14 @@ export class BankService {
         return deposits - withdrawals;
       })
     );
+  }
+
+  addTransaction(type: 'deposit' | 'withdrawal', amount: number, description: string) {
+    this.http.post<Transaction>(`${this.apiUrl}/accounts/1/deposit`, {
+      type,
+      amount,
+      description
+    });
   }
 /*
   convertBalanceToFiat(targetCurrency: string): Observable<number> {
